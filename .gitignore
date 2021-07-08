@@ -1,4 +1,5 @@
-BooksDirectory/node_modules
+BooksDirectoryFront/node_modules
+BooksDirectoryBack/node_modules
 # Logs
 logs
 *.log
