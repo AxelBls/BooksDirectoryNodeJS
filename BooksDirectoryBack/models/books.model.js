@@ -1,15 +1,15 @@
 'use strict';
 
-import dbcon from './../config/db.config';
+const con = require('./../config/db.config');
 
-var Books = function(books) {
+var Book = function(books) {
     this.titre = books.titre;
     this.nomAuteur = books.nomAuteur;
     this.prenomAuteur = books.prenomAuteur;
 };
 
-Books.create = function (newBook, result) {
-    dbcon.query("INSERT INTO books set ?", newBook, function (err, res) {
+Book.create = function (newBook, result) {
+    con.query("INSERT INTO books set ?", newBook, function (err, res) {
         if (err) {
             console.log("error: ",err);
             result(err, null);
@@ -21,8 +21,8 @@ Books.create = function (newBook, result) {
     });
 };
 
-Books.findById = function (id,result) {
-    dbcon.query("SELECT * FROM books where id = ?", id, function(err, res) {
+Book.findById = function (id,result) {
+    con.query("SELECT * FROM books where id = ?", id, function(err, res) {
         if(err) {
             console.log("error: ",err);
             result(err, null);
@@ -33,8 +33,8 @@ Books.findById = function (id,result) {
     });
 };
 
-Books.findAll = function (result) {
-    dbcon.query("SELECT * FROM books", function(err, res) {
+Book.findAll = function (result) {
+    con.query("SELECT * FROM books", function(err, res) {
         if(err) {
             console.log("error: ",err);
             result(err,null)
@@ -46,8 +46,8 @@ Books.findAll = function (result) {
     });
 };
 
-Books.update = function(id, book, result){
-    dbcon.query("UPDATE books SET titre=?,nomAuteur=?,prenomAuteur=?", [book.titre,book.nomAuteur,book.prenomAuteur], function (err, res){
+Book.update = function(id, book, result){
+    con.query("UPDATE books SET titre=?,nomAuteur=?,prenomAuteur=?", [book.titre,book.nomAuteur,book.prenomAuteur], function (err, res){
         if (err){
             console.log("error: ",err);
             result(null, err);
@@ -58,8 +58,8 @@ Books.update = function(id, book, result){
     });
 };
 
-Books.delete = function(id,result) {
-    dbcon.query("DELETE FROM books WHERE id = ?", id, function(err, res) {
+Book.delete = function(id,result) {
+    con.query("DELETE FROM books WHERE id = ?", id, function(err, res) {
         if(err) {
             console.log("error: ",err);
             result(null, err);
@@ -70,4 +70,4 @@ Books.delete = function(id,result) {
     });
 };
 
-export default Books;
+module.exports = Book

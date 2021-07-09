@@ -5,7 +5,7 @@ const mysql = require('mysql')
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: 'Mastermanga12!',
+    password: 'azerty123456789',
     database: 'booksdirectory',
   });
 
@@ -14,4 +14,4 @@ var con = mysql.createConnection({
     console.log('Connected!');
   });
 
-  module.exports = dbcon;
+  module.exports = con;
