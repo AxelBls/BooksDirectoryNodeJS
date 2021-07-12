@@ -8,6 +8,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RouterModule } from '@angular/router';
 import {routes} from './app-routing.module';
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { HomeModule } from './home/home.module';
   ],
   imports: [
     BrowserModule,
+    MatExpansionModule,
+    HttpClientModule,
     MatToolbarModule,
     BrowserAnimationsModule,
     HomeModule,
