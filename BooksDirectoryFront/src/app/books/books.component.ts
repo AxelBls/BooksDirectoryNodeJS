@@ -11,7 +11,8 @@ export class BooksComponent implements OnInit {
   loading = false;
   books: Book[] = [];
   panelOpenState = false;
-  length = 0
+  length = 0;
+  pageSize = 10;
 
   constructor(private bookS: BookServices) { }
 
@@ -21,6 +22,7 @@ export class BooksComponent implements OnInit {
       this.books=lbook;
       this.loading = false;
       this.length = lbook.length;
+      console.log(this.length);
     })
   }
 
