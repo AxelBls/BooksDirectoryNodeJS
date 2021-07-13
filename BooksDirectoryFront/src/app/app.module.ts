@@ -10,6 +10,9 @@ import {routes} from './app-routing.module';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { BooksComponent } from './books/books.component';
 
 
 @NgModule({
@@ -17,9 +20,12 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AppComponent,
     NavComponent,
     PageNotFoundComponent,
+    BooksComponent,
   ],
   imports: [
     BrowserModule,
+    MatIconModule,
+    MatButtonModule,
     MatExpansionModule,
     HttpClientModule,
     MatToolbarModule,
