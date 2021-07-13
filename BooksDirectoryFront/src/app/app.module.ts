@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import { BooksComponent } from './books/books.component';
+import { BooksModule } from './books/books.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -20,9 +21,10 @@ import { BooksComponent } from './books/books.component';
     AppComponent,
     NavComponent,
     PageNotFoundComponent,
-    BooksComponent,
   ],
   imports: [
+    BooksModule,
+    MatPaginatorModule,
     BrowserModule,
     MatIconModule,
     MatButtonModule,
