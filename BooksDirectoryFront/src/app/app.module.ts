@@ -14,6 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { BooksModule } from './books/books.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppComponent,
     NavComponent,
     PageNotFoundComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BooksModule,

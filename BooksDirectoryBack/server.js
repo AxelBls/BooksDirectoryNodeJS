@@ -16,6 +16,9 @@ app.get('/', (req, res) => {
 
 const bookRoutes = require('./routes/books.routes');
 
+const userRoutes = require('./routes/users.routes')
+
+app.use(userRoutes);
 app.use(bookRoutes);
 
 app.listen(3000, () => {

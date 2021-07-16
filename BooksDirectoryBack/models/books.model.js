@@ -37,7 +37,7 @@ Book.findAll = function (result) {
     con.query("SELECT * FROM books", function(err, res) {
         if(err) {
             console.log("error: ",err);
-            result(err,null)
+            result(err,null);
         }
         else {
             console.log("books: ", res);
