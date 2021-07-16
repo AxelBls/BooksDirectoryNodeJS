@@ -1,10 +1,14 @@
 .usefulButtons {
-    margin-left: 5%;
+    margin-left: 2.5%;
+}
+
+.siteTitle{
+    width: 15%;
+    height: 15%;
 }
 
 img{
-    width: 15%;
-    height: 15%;
+    width: 40%;
 }
 
 mat-toolbar{

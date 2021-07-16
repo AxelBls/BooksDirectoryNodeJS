@@ -26,4 +26,14 @@ export class BookServices{
             })
         );
     }
+
+    getOneBook(id:number): Observable<Book>{
+        return this.http.get<Observable<any>>(this.bookUrl + '/' + id)
+        .pipe(
+            tap((rep:any) => console.log(rep)),
+            map(rep => {
+                return rep;
+            })
+        );
+    }
 }

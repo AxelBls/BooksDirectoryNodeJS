@@ -1,0 +1,66 @@
+import { Injectable,NgModule } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { User } from "../models/user.model";
+import { map, tap } from "rxjs/operators";
+import { environment } from "src/environments/environment";
+
+@Injectable({
+    providedIn: 'root'
+})
+export class UserServices{
+    private readonly apiUrl = environment.apiURL;
+    private userUrl = this.apiUrl + 'user';
+
+    constructor(private http: HttpClient){ }
+
+    getUsers(): Observable<User[]>{
+        return this.http.get<Observable<any>>(this.userUrl)
+        .pipe(
+            tap((rep:any) => console.log(rep)),
+            map(rep => {
+                return rep;
+            })
+        );
+    }
+
+    getOneUser(id:number): Observable<User>{
+        return this.http.get<Observable<any>>(this.userUrl + '/' + id)
+        .pipe(
+            tap((rep:any) => console.log(rep)),
+            map(rep => {
+                return rep;
+            })
+        );
+    }
+
+    deleteUser(id:number) {
+        return this.http.delete<Observable<any>>(this.userUrl + '/' + id)
+        .pipe(
+            tap((rep:any) => console.log(rep)),
+            map(rep => {
+                return rep;
+            })
+        );
+    }
+
+    updateUser(user: User, id: number) {
+        return this.http.put<Observable<any>>(this.userUrl + '/' + id, user)
+        .pipe(
+            tap((rep:any) => console.log(rep)),
+            map(rep => {
+                return rep;
+            })
+        );
+    }
+
+    createUser(user: User) {
+        return this.http.post<Observable<any>>(this.userUrl, user)
+        .pipe(
+            tap((rep:any) => console.log(rep)),
+            map(rep => {
+                return rep;
+            })
+        );
+    }
+}
