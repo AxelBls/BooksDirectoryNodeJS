@@ -30,7 +30,7 @@ CREATE TABLE users(
     age INT,
     mail VARCHAR(100),
     telephone VARCHAR(10),
-    mdp VARCHAR(25),
+    mdp VARCHAR(100),
     role ENUM('membre','admin')
 ) default charset utf8 comment '';
 

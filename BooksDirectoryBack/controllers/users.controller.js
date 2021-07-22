@@ -1,6 +1,10 @@
 'use strict';
 
 const Users = require ('../models/users.model');
+const crypto = require('crypto');
+const User = require('../models/users.model');
+const algorithm = 'aes256';
+const password = 'l5JmP+G0/1zB%;r8B8?2?2pcqGcL^3';
 
 exports.findAll = function(req, res) {
     Users.findAll(function(err, user) {
@@ -68,3 +72,18 @@ exports.delete = function(req, res) {
         }
     });
 };
+
+exports.decrypt = function(req, res) {
+    User.findById(req.params.id, function(err, user) {
+        if(err){
+            res.send(err);
+        }
+        else {
+            mdp = user.mdp;
+            var decipher = crypto.createDecipher(algorithm,password);
+            var dec = decipher.update(mdp,'hex','utf8');
+            dec += crypto.Cipher.final('utf8');
+            return dec;
+        }
+    })
+}
