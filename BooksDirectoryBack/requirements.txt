@@ -1,5 +1,0 @@
-body-parser
-cors
-crypto
-express
-mysql
