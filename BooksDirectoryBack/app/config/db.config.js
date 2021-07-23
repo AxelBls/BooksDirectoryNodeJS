@@ -7,7 +7,7 @@ var con = mysql.createConnection({
     user: "root",
     password: 'root',
     database: 'booksdirectory',
-    socketPath: '/var/run/mysqld/mysqld.sock'
+    port: 3306
   });
 
   con.connect(function(err) {
