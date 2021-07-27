@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const con = require('./config/db.config');
 
 
 const app = express();
@@ -23,4 +24,7 @@ app.use(bookRoutes);
 
 app.listen(3000, () => {
   console.log('Server is listening on port 3000')
+  setInterval(function() {
+    con.query('SELECT 1');
+  }, 5000);
 });
