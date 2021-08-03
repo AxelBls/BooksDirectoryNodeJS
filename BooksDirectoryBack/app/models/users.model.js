@@ -2,7 +2,7 @@
 
 const con = require('./../config/db.config');
 const crypto = require('crypto');
-const algorithm = 'aes256';
+const algorithm = 'aes-256-ctr';
 const password = 'l5JmP+G0/1zB%;r8B8?2?2pcqGcL^3';
 
 var User = function(users) {

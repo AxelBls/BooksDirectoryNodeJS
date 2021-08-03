@@ -19,7 +19,8 @@ const httpOptions = {
 
 export class AuthService {
     private readonly apiUrl = environment.apiURL;
-    private userUrl = this.apiUrl + 'user'
+    private userUrl = this.apiUrl + 'user';
+    private loginUrl = this.apiUrl + 'login';
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
@@ -31,6 +32,24 @@ export class AuthService {
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
     }
+
+    onLogin(user: any): Observable<{} | User> {
+        const request = JSON.stringify({email: user.email, password: user.password});
+        const url = this.loginUrl;
+        return this.http.post(this.loginUrl, request, httpOptions)
+          .pipe(
+            tap(data => {
+              console.log('le retour', data);
+            }),
+            map((data: any) => {
+              let utilisateur;
+              utilisateur = User.parse(data[0]);
+              console.log(this.currentUser);
+              localStorage.setItem('currentUser', JSON.stringify(utilisateur));
+              this.currentUserSubject.next(utilisateur);
+              return utilisateur;
+            }));
+      }
 
     logout() {
         localStorage.removeItem('currentUser');

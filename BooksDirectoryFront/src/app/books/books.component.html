@@ -1,12 +1,10 @@
-<mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [length]="length"> 
-</mat-paginator>
 <section class="book" *ngFor="let book of books">
     <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    {{book.id}}
+                    <img [src]=book.img>
                 </mat-panel-title>
                 <mat-panel-description class="title">
                     {{book.titre}}

@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { User } from "../models/user.model";
 import { map, tap } from "rxjs/operators";
 import { environment } from "src/environments/environment";
+import * as CryptoJS from "crypto-js";
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,8 @@ import { environment } from "src/environments/environment";
 export class UserServices{
     private readonly apiUrl = environment.apiURL;
     private userUrl = this.apiUrl + 'user';
+    private algorithm = "aes-256-ctr";
+    private password = "l5JmP+G0/1zB%;r8B8?2?2pcqGcL^3";
 
     constructor(private http: HttpClient){ }
 
@@ -29,6 +32,9 @@ export class UserServices{
         .pipe(
             tap((rep:any) => console.log(rep)),
             map(rep => {
+                let decrypted = CryptoJS.AES.decrypt(rep[0].mdp, this.password);
+                console.log(decrypted);
+                rep.mdp = decrypted;
                 return rep;
             })
         );

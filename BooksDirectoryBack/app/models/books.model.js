@@ -6,6 +6,8 @@ var Book = function(books) {
     this.titre = books.titre;
     this.nomAuteur = books.nomAuteur;
     this.prenomAuteur = books.prenomAuteur;
+    this.noTome = books.noTome;
+    this.img = books.img;
 };
 
 Book.create = function (newBook, result) {
@@ -47,7 +49,7 @@ Book.findAll = function (result) {
 };
 
 Book.update = function(id, book, result){
-    con.query("UPDATE books SET titre=?,nomAuteur=?,prenomAuteur=?", [book.titre,book.nomAuteur,book.prenomAuteur], function (err, res){
+    con.query("UPDATE books SET titre=?,nomAuteur=?,prenomAuteur=?,noTome=?,img=?", [book.titre,book.nomAuteur,book.prenomAuteur,book.noTome,book.img], function (err, res){
         if (err){
             console.log("error: ",err);
             result(null, err);

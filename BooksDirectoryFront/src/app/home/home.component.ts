@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServices } from '../services/user.services';
 import { User } from '../models/user.model';
+import { UserServices } from '../services/user.services';
 
 
 @Component({
@@ -10,20 +10,16 @@ import { User } from '../models/user.model';
 })
 export class HomeComponent implements OnInit {
   loading = false;
-  users: User[] = [];
-  oneUser : any;  
-
-  constructor(private userS: UserServices) {
-    
+  user: any
+  constructor(private userS: UserServices) { 
   }
 
   ngOnInit(): void {
     this.loading = true;
-    this.userS.getUsers().subscribe(lusers => {
+    this.userS.getOneUser(3).subscribe(lusers => {
       console.log(lusers);
-      this.oneUser = lusers;
+      this.user = lusers;
       this.loading = false;
     })
   }
-
 }

@@ -16,6 +16,7 @@ import { BooksModule } from './books/books.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { RegisterComponent } from './auth/register/register.component';
     HttpClientModule,
     MatToolbarModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
     HomeModule,
     RouterModule.forRoot(routes)
   ],

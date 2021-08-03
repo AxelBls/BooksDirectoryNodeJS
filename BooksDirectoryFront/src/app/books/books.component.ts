@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BookServices } from '../services/book.services';
 import { Book } from '../models/book.model';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-books',
@@ -10,19 +12,17 @@ import { Book } from '../models/book.model';
 export class BooksComponent implements OnInit {
   loading = false;
   books: Book[] = [];
-  panelOpenState = false;
-  length = 0;
-  pageSize = 10;
+  panelOpenState: boolean = false;
+  images: any = [];
 
-  constructor(private bookS: BookServices) { }
+  constructor(private bookS: BookServices, private sanitizer : DomSanitizer) {
+  }
 
   ngOnInit(): void {
     this.loading = true;
     this.bookS.getBooks().subscribe(lbook => {
       this.books=lbook;
       this.loading = false;
-      this.length = lbook.length;
-      console.log(this.length);
     })
   }
 

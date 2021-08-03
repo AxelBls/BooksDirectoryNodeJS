@@ -72,18 +72,3 @@ exports.delete = function(req, res) {
         }
     });
 };
-
-exports.decrypt = function(req, res) {
-    User.findById(req.params.id, function(err, user) {
-        if(err){
-            res.send(err);
-        }
-        else {
-            mdp = user.mdp;
-            var decipher = crypto.createDecipher(algorithm,password);
-            var dec = decipher.update(mdp,'hex','utf8');
-            dec += crypto.Cipher.final('utf8');
-            return dec;
-        }
-    })
-}

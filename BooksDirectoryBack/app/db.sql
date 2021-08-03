@@ -15,13 +15,15 @@ CREATE TABLE books (
     id bigint(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     titre varchar(255) NOT NULL,
     nomAuteur varchar(255) NOT NULL,
-    prenomAuteur varchar(255) NOT NULL
+    prenomAuteur varchar(255) NOT NULL,
+    noTome INT NOT NULL,
+    img BLOB NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO books (id,titre,nomAuteur,prenomAuteur) VALUES 
-(1, 'Seven Deadly Sins','Suzuki','Nakaba');
-INSERT INTO books (id,titre,nomAuteur,prenomAuteur) VALUES 
-(2, 'Black Clover','Tabata','Yûki');
+INSERT INTO books (id,titre,nomAuteur,prenomAuteur,noTome,img) VALUES 
+(1, 'Seven Deadly Sins','Suzuki','Nakaba',1,'/c/Users/107281706/Desktop/Learning/COURSES/NodeJS/Exercices/images-test/BlackClover.jpg');
+INSERT INTO books (id,titre,nomAuteur,prenomAuteur,noTome,img) VALUES 
+(2, 'Black Clover','Tabata','Yûki',1,'/c/Users/107281706/Desktop/Learning/COURSES/NodeJS/Exercices/images-test/dbz.jpg');
 
 CREATE TABLE users(  
     id int NOT NULL primary key AUTO_INCREMENT,

@@ -4,6 +4,8 @@ import { BooksComponent } from "./books.component";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { BooksRoutingModule } from "./books-routing.module";
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table'; 
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
     declarations: [BooksComponent],
@@ -11,7 +13,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         CommonModule,
         BooksRoutingModule,
         MatExpansionModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatTableModule,
+        MatFormFieldModule
     ]
 })
 

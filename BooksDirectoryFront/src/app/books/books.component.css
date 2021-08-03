@@ -1,9 +1,15 @@
-.book{
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-}
-
-.title{
-    margin-left: 20%;
-}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
