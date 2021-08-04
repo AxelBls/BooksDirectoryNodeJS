@@ -15,8 +15,7 @@
   }
 
   mat-grid-tile {
-    border : solid blue;
-    background-color: aqua;
+    border : solid black medium;
+    display: flex;
     margin-left: 1%;
-    padding-top: 5%;
   }
