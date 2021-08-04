@@ -1,4 +1,4 @@
-<section class="book" *ngFor="let book of books">
+<!--<section class="book" *ngFor="let book of books">
     <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
@@ -13,4 +13,10 @@
             <p>Auteur : {{book.nomAuteur}} {{book.prenomAuteur}}</p>
         </mat-expansion-panel>
     </mat-accordion>
+</section>-->
+
+<section class="book" >
+    <mat-grid-list cols="3" rowHeight="2:1" *ngFor="let book of books">
+        <mat-grid-tile routerLink="#">{{book.titre}}</mat-grid-tile>
+    </mat-grid-list>
 </section>

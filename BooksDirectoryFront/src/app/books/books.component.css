@@ -13,3 +13,10 @@
     overflow: auto;
     max-height: 500px;
   }
+
+  mat-grid-tile {
+    border : solid blue;
+    background-color: aqua;
+    margin-left: 1%;
+    padding-top: 5%;
+  }
